@@ -39,7 +39,6 @@ def convert_to_MACO(raw_config: dict):
         parsed_result.http.append(MACOModel.Http(uri=raw_config["C2"], usage="c2"))
     if raw_config.get("Botnet ID"):
         parsed_result.campaign_id.append(raw_config.get("Botnet ID"))
-        parsed_result.other['Botnet ID'] = raw_config.get("Botnet ID")
     return parsed_result
 
 

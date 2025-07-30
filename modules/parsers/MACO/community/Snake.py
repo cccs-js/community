@@ -25,7 +25,6 @@ def convert_to_MACO(raw_config: dict):
             mail_from=raw_config.get("From Address")
         )
         )
-    parsed_result.other['config'] = raw_config
     return parsed_result
 
 class Snake(Extractor):
