@@ -31,7 +31,7 @@ def convert_to_MACO(raw_config: dict):
 class Snake(Extractor):
     author = "kevoreilly"
     family = "Snake"
-    last_modified = "2025-07-30"
+    last_modified = "2025-07-31"
     sharing = "TLP:CLEAR"
     yara_rule = get_YARA_rule(family)
 
