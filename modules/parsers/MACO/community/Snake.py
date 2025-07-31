@@ -11,18 +11,19 @@ def convert_to_MACO(raw_config: dict):
 
     parsed_result = MACOModel(family="Snake", other=raw_config)
     # handle telegram
-    if raw_config.get("C2"):
+    if raw_config["Type"] == 'Telegram':
         # URL related to C2
         parsed_result.http.append(MACOModel.Http(uri=raw_config["C2"], usage="c2"))
     
     # handle smtp
-    if raw_config.get("Host"):
+    if raw_config["Type"] == 'SMTP':
         parsed_result.smtp.append(MACOModel.SMTP(
-            hostname=raw_config.get("Host"),
-            port=raw_config.get("Port"),
-            password=raw_config.get("Password"),
-            mail_to=raw_config.get("To Address"),
-            mail_from=raw_config.get("From Address")
+            hostname=raw_config["Host"],
+            port=raw_config["Port"],
+            password=raw_config["Password"],
+            mail_to=[raw_config["To Address"]],
+            mail_from=raw_config["From Address"],
+            usage="c2"
         )
         )
     return parsed_result
